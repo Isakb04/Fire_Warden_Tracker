@@ -10,15 +10,12 @@
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.0.0",
     "ajv-keywords": "^5.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-  }, 
-  "resolutions": {
-  "react": "^18.3.1"
-},
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -30,6 +27,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "browserslist": {
     "production": [
