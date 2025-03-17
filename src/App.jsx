@@ -14,7 +14,7 @@ const AddWardenForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const wardenData = {
+        const FireWardens = {
             PersonId: personId,
             FirstName: firstName,
             MiddleInitial: middleInitial,
@@ -32,7 +32,7 @@ const AddWardenForm = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(wardenData)
+                body: JSON.stringify(FireWardens)
             });
 
             const result = await response.text();
