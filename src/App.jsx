@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const AddWardenForm = () => {
-    const [number, setNumber] = useState('');
+    const [personId, setPersonId] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [middleInitial, setMiddleInitial] = useState('');
@@ -15,7 +15,7 @@ const AddWardenForm = () => {
         event.preventDefault();
 
         const wardenData = {
-            PersonId: number,
+            PersonId: personId,
             FirstName: firstName,
             MiddleInitial: middleInitial,
             LastName: lastName,
@@ -49,8 +49,8 @@ const AddWardenForm = () => {
                 <label>Person ID:</label>
                 <input
                     type="number"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
+                    value={personId}
+                    onChange={(e) => setPersonId(e.target.value)}
                     required
                 />
             </div>
