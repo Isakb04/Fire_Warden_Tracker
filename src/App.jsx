@@ -27,7 +27,7 @@ const AddWardenForm = () => {
         };
 
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net', {
+            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
