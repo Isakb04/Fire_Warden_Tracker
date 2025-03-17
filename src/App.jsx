@@ -14,6 +14,11 @@ const AddWardenForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (!personId || isNaN(personId)) {
+            alert('Please provide a valid Person ID.');
+            return;
+        }
+
         const FireWardens = {
             PersonId: personId,
             FirstName: firstName,
@@ -48,7 +53,7 @@ const AddWardenForm = () => {
             <div>
                 <label>Person ID:</label>
                 <input
-                    type="text"
+                    type="number"
                     value={personId}
                     onChange={(e) => setPersonId(e.target.value)}
                     required
