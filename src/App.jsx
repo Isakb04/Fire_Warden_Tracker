@@ -48,7 +48,7 @@ const AddWardenForm = () => {
             <div>
                 <label>Person ID:</label>
                 <input
-                    type="number"
+                    type="text"
                     value={personId}
                     onChange={(e) => setPersonId(e.target.value)}
                     required
