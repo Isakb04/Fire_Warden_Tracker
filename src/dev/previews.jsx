@@ -3,6 +3,7 @@ import {PaletteTree} from './palette'
 import App from "../App";
 import HomePage from "../App";
 import AddWardenForm from "../App";
+import LoginPage from "../pages/LoginPage";
 
 const ComponentPreviews = () => {
     return (
@@ -15,6 +16,9 @@ const ComponentPreviews = () => {
             </ComponentPreview>
             <ComponentPreview path="/AddWardenForm">
                 <AddWardenForm/>
+            </ComponentPreview>
+            <ComponentPreview path="/LoginPage">
+                <LoginPage/>
             </ComponentPreview>
         </Previews>
     )

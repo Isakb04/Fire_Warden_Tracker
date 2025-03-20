@@ -5,11 +5,30 @@ function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Handle login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
+
+        try {
+            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Redirect to dashboard or admin page
+                window.location.href = '/dashboard';
+            } else {
+                alert('Invalid credentials');
+            }
+        } catch (error) {
+            console.error('Error logging in:', error);
+            alert('Failed to log in');
+        }
     };
 
     return (
