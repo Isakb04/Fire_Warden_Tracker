@@ -14,7 +14,7 @@ const AddWardenForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!personId || isNaN(personId)) {
+        if (!personId || isNaN(Number(personId))) {
             alert('Please provide a valid Person ID.');
             return;
         }
