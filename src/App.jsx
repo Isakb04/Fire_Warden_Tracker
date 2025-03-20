@@ -25,7 +25,7 @@ const AddWardenForm = () => {
             FirstName: firstName,
             MiddleInitial: middleInitial,
             LastName: lastName,
-            DateOfBirth: moment(dateOfBirth).format('DD-MM-YYYY'),
+            DateOfBirth: moment(dateOfBirth).format('YYYY-MM-DD'),
             Email: email,
             password: password,
             Phone: phone,
