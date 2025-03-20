@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 
 const AddWardenForm = () => {
     const [personId, setPersonId] = useState('');
@@ -24,7 +25,7 @@ const AddWardenForm = () => {
             FirstName: firstName,
             MiddleInitial: middleInitial,
             LastName: lastName,
-            DateOfBirth: dateOfBirth,
+            DateOfBirth: moment(dateOfBirth).format('YYYY-MM-DD'),
             Email: email,
             password: password,
             Phone: phone,
