@@ -4,7 +4,7 @@ import moment from 'moment';
 const AddWardenForm = () => {
     const [personId, setPersonId] = useState('');
     const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');   
+    const [lastName, setLastName] = useState('');
     const [middleInitial, setMiddleInitial] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [email, setEmail] = useState('');
