@@ -33,7 +33,7 @@ function DashboardPage() {
                         </tr>
                         <tr>
                             <th>Room:</th>
-                            <td>WD101</td>
+                            <td>401</td>
                         </tr>
                         </tbody>
                     </table>
