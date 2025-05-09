@@ -10,9 +10,6 @@ function LoginPage() {
             <header className="HomePage-header">
                 <h1>Login</h1>
                 <LoginForm />
-                <Link className="Login-button" to="/dashboard">
-                    Temp Log In
-                </Link>       
                 <Link className="Login-button" to="/">
                     Back
                 </Link>
