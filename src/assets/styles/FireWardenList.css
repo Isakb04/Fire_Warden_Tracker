@@ -1,0 +1,27 @@
+﻿.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #262626;
+    position: sticky;
+    top: 0;
+}
+
+.highlighted-row {
+    background-color: #696969; /* light cyan */
+    font-weight: bold;
+}
+

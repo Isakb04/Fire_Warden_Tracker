@@ -5,6 +5,8 @@ import DashboardPage from "./pages/DashboardPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
 
 const App = () => {
     const [users, setUsers] = useState([]);
@@ -21,7 +23,9 @@ const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/dashboard" element={<DashboardPage />} />
-                <Route path="/AdminPage" element={<AdminPage users={users} />} />
+                <Route path="/adminPage" element={<AdminPage />} />
+                <Route path="/profile" element={<ProfilePage users={users} />} />
+                <Route path="/settings" element={<SettingsPage />} />
             </Routes>
         </>
     );

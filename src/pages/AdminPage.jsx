@@ -1,19 +1,17 @@
 ﻿import React from 'react';
-import { Link } from 'react-router-dom';
 import '../assets/styles/App.css';
-import AddWardenForm from '../components/AddWardenForm';
+import ManageWardenForm from '../components/ManageWardenForm';
+import TopBar from "../components/TopBar";
 
 
 function AdminPage() {
     return (
-        <div className="AdminPage">
+        <div className="bg-image">
+            <TopBar />
             <header className="HomePage-header">
                 <h1>University of Winchester Fire Warden App</h1>
-                <p>Add Fire Wardens</p>
-                <AddWardenForm />
-                <Link className="Back-Button" to="/dashboard">
-                    Back
-                </Link>
+                <p>Add and Manage Fire Wardens</p>
+                <ManageWardenForm />
             </header>
         </div>
     );

@@ -2,8 +2,11 @@
 import {PaletteTree} from './palette'
 import App from "../App";
 import HomePage from "../App";
-import AddWardenForm from "../App";
+import ManageWardenForm from "../App";
 import LoginPage from "../pages/LoginPage";
+import DashboardPage from "../pages/DashboardPage";
+import AdminPage from "../pages/AdminPage";
+import TopBar from "../components/TopBar";
 
 const ComponentPreviews = () => {
     return (
@@ -14,11 +17,20 @@ const ComponentPreviews = () => {
             <ComponentPreview path="/HomePage">
                 <HomePage/>
             </ComponentPreview>
-            <ComponentPreview path="/AddWardenForm">
+            <ComponentPreview path="/ManageWardenForm">
                 <AddWardenForm/>
             </ComponentPreview>
             <ComponentPreview path="/LoginPage">
                 <LoginPage/>
+            </ComponentPreview>
+            <ComponentPreview path="/DashboardPage">
+                <DashboardPage/>
+            </ComponentPreview>
+            <ComponentPreview path="/AdminPage">
+                <AdminPage/>
+            </ComponentPreview>
+            <ComponentPreview path="/TopBar">
+                <TopBar/>
             </ComponentPreview>
         </Previews>
     )

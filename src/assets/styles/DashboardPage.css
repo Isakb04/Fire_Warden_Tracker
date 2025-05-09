@@ -1,0 +1,43 @@
+﻿.DashboardPage-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.DashboardPage-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.DashboardPage-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.DashboardPage-nav ul li {
+    display: inline;
+}
+
+.DashboardPage-nav ul li a {
+    color: #e7e5e2;
+    text-decoration: none;
+}
+
+.DashboardPage-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.DashboardPage-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
