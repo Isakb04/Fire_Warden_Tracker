@@ -12,7 +12,7 @@ const App = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get("firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net")
+        axios.get("'https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net")
             .then((response) => setUsers(response.data))
             .catch((error) => console.error("Error fetching users:", error));
     }, []);
