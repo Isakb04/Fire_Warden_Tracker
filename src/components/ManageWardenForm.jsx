@@ -33,7 +33,7 @@ const ManageWardenForm = () => {
     useEffect(() => {
         const fetchWardens = async () => {
             try {
-                const response = await fetch('http://localhost:8080/FireWardenTracker_get_all');
+                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all');
                 if (!response.ok) {
                     throw new Error(`Error: ${response.statusText}`);
                 }
@@ -62,7 +62,7 @@ const ManageWardenForm = () => {
             Location: wardenDetails.location,
         };
         try {
-            const response = await fetch('http://localhost:8080/FireWardenTracker_add', {
+            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ const ManageWardenForm = () => {
             Phone: manageWardenDetails.phone || undefined,
         };
         try {
-            const response = await fetch('http://localhost:8080/FireWardenTracker_update', {
+            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ const ManageWardenForm = () => {
             return;
         }
         try {
-            const response = await fetch('http://localhost:8080/FireWardenTracker_remove', {
+            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_remove', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

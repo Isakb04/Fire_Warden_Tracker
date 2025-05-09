@@ -10,7 +10,7 @@ const WardenList = () => {
     useEffect(() => {
         const fetchWardens = async () => {
             try {
-                const response = await fetch('http://localhost:8080/FireWardenTracker_get_all');
+                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -29,7 +29,7 @@ const WardenList = () => {
 
         const fetchLocations = async () => {
             try {
-                const response = await fetch('http://localhost:8080/FireWarden_Locations');
+                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWarden_Locations');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -46,7 +46,7 @@ const WardenList = () => {
 
  const handleLocationChange = (event) => {
      setSelectedLocation(event.target.value);
-     fetch('http://localhost:8080/FireWardenTracker_update_location', {
+     fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update_location', {
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({
@@ -63,7 +63,7 @@ const WardenList = () => {
          .then(data => {
              console.log('Location updated successfully:', data);
              // Re-fetch wardens to refresh the table
-             fetch('http://localhost:8080/FireWardenTracker_get_all')
+             fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all')
                  .then(response => {
                      if (!response.ok) {
                          throw new Error('Failed to fetch updated wardens');
