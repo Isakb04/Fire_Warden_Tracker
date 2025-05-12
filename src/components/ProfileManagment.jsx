@@ -14,7 +14,7 @@ function ProfileManagment() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/FireWardenTracker_get_all');
+                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
