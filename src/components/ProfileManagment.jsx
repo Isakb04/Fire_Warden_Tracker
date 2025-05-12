@@ -14,7 +14,7 @@ function ProfileManagment() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all');
+                const response = await fetch('http://localhost:8080/FireWardenTracker_get_all');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -44,7 +44,7 @@ function ProfileManagment() {
         setIsEditing(false);
 
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update', {
+            const response = await fetch('http://localhost:5000/FireWardenTracker_update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ function ProfileManagment() {
             Phone: managePhone || undefined,
         };
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update', {
+            const response = await fetch('http://localhost:5000/FireWardenTracker_update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -116,6 +116,9 @@ function ProfileManagment() {
                                 onChange={(e) => setPhone(e.target.value)}
                                 required
                             />
+                        </div>
+                        <div>
+                            <label>If you wish to change your password please speak to an Admin.</label>
                         </div>
                         <button onClick={handleSave}>Save</button>
                         <button onClick={() => setIsEditing(false)}>Cancel</button>

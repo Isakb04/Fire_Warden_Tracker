@@ -26,7 +26,7 @@ const LoginForm = () => {
                     return;
                 }
 
-                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_change_password', {
+                const response = await fetch('http://localhost:8080/FireWardenTracker_change_password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const LoginForm = () => {
 
         // Handle login
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_authenticate', {
+            const response = await fetch('http://localhost:8080/FireWardenTracker_authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const App = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get("https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/users")
+        axios.get("http://localhost:8080/users")
             .then((response) => setUsers(response.data))
             .catch((error) => console.error("Error fetching users:", error));
     }, []);

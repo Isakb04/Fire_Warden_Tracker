@@ -10,7 +10,7 @@ const WardenList = () => {
     useEffect(() => {
         const fetchWardens = async () => {
             try {
-                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all');
+                const response = await fetch('http://localhost:8080/FireWardenTracker_get_all');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -29,7 +29,7 @@ const WardenList = () => {
 
         const fetchLocations = async () => {
             try {
-                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWarden_Locations');
+                const response = await fetch('http://localhost:8080/FireWarden_Locations');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -46,7 +46,7 @@ const WardenList = () => {
 
  const handleLocationChange = (event) => {
      setSelectedLocation(event.target.value);
-     fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update_location', {
+     fetch('http://localhost:8080/FireWardenTracker_update_location', {
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({
@@ -63,7 +63,7 @@ const WardenList = () => {
          .then(data => {
              console.log('Location updated successfully:', data);
              // Re-fetch wardens to refresh the table
-             fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all')
+             fetch('http://localhost:8080/FireWardenTracker_get_all')
                  .then(response => {
                      if (!response.ok) {
                          throw new Error('Failed to fetch updated wardens');
@@ -99,34 +99,35 @@ const WardenList = () => {
                 </thead>
                 <tbody>
                 {wardens
-                    .sort((a, b) => (a.PersonId === parseInt(loggedInPersonId) ? -1 : b.PersonId === parseInt(loggedInPersonId) ? 1 : 0))
-                    .map(warden => (
-                        <tr
-                            key={warden.PersonId}
-                            className={warden.PersonId === parseInt(loggedInPersonId) ? 'highlighted-row' : ''}
-                        >
-                            <td>{warden.PersonId === parseInt(loggedInPersonId) ? `${warden.PersonId} (You)` : warden.PersonId}</td>
-                            <td>{warden.FirstName}</td>
-                            <td>{warden.LastName}</td>
-                            <td>{warden.Email}</td>
-                            <td>{warden.Phone}</td>
-                            <td>
-                                {warden.PersonId === parseInt(loggedInPersonId) ? (
-                                    <select
-                                        value={selectedLocation}
-                                        onChange={handleLocationChange}
-                                    >
-                                        <option value="" disabled>Select a location</option>
-                                        {locations.map(location => (
-                                            <option key={location.id} value={location.Location}>
-                                                {location.Location}
-                                            </option>
-                                        ))}
-                                    </select>
-                                ) : (
-                                    warden.Location
-                                )}
-                            </td>
+.filter(warden => warden.ShowOnTable !== 0)
+.sort((a, b) => (a.PersonId === parseInt(loggedInPersonId) ? -1 : b.PersonId === parseInt(loggedInPersonId) ? 1 : 0))
+.map(warden => (
+    <tr
+        key={warden.PersonId}
+        className={warden.PersonId === parseInt(loggedInPersonId) ? 'highlighted-row' : ''}
+    >
+        <td>{warden.PersonId === parseInt(loggedInPersonId) ? `${warden.PersonId} (You)` : warden.PersonId}</td>
+        <td>{warden.FirstName}</td>
+        <td>{warden.LastName}</td>
+        <td>{warden.Email}</td>
+        <td>{warden.Phone}</td>
+        <td>
+            {warden.PersonId === parseInt(loggedInPersonId) ? (
+                <select
+                    value={selectedLocation}
+                    onChange={handleLocationChange}
+                >
+                    <option value="" disabled>Select a location</option>
+                    {locations.map(location => (
+                        <option key={location.id} value={location.Location}>
+                            {location.Location}
+                        </option>
+                    ))}
+                </select>
+            ) : (
+                warden.Location
+            )}
+        </td>
                             <td>
                                 {warden.LastUpdated
                                     ? new Date(warden.LastUpdated).toLocaleString('en-GB', {

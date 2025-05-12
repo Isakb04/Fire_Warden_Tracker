@@ -10,9 +10,10 @@ const ManageWardenForm = () => {
         middleInitial: '',
         dateOfBirth: '',
         email: '',
-        password: '',
+        password: 'Firewarden123', // Set default password
         phone: '',
         location: '',
+        showOnDashboard: 0,
     });
 
     const [manageWardenDetails, setManageWardenDetails] = useState({
@@ -25,15 +26,16 @@ const ManageWardenForm = () => {
         password: '',
         email: '',
         phone: '',
+        showOnDashboard: 0,
     });
 
     const [wardens, setWardens] = useState([]);
     const [selectedWarden, setSelectedWarden] = useState(null);
-
+    
     useEffect(() => {
         const fetchWardens = async () => {
             try {
-                const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_get_all');
+                const response = await fetch('http://localhost:8080/FireWardenTracker_get_all');
                 if (!response.ok) {
                     throw new Error(`Error: ${response.statusText}`);
                 }
@@ -60,9 +62,10 @@ const ManageWardenForm = () => {
             Password: wardenDetails.password, // Changed from "Password" to "password"
             Phone: wardenDetails.phone,
             Location: wardenDetails.location,
+            ShowOnTable: wardenDetails.showOnDashboard,
         };
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_add', {
+            const response = await fetch('http://localhost:8080/FireWardenTracker_add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,6 +94,7 @@ const ManageWardenForm = () => {
                 password: '',
                 email: '',
                 phone: '',
+                showOnDashboard: 0,
             });
             return;
         }
@@ -107,6 +111,7 @@ const ManageWardenForm = () => {
                 password: '',
                 email: warden.Email,
                 phone: warden.Phone,
+                showOnDashboard: warden.ShowOnTable,
             });
         }
     };
@@ -125,9 +130,10 @@ const ManageWardenForm = () => {
             Password: manageWardenDetails.password || undefined,
             Email: manageWardenDetails.email || undefined,
             Phone: manageWardenDetails.phone || undefined,
+            ShowOnTable: manageWardenDetails.showOnDashboard,
         };
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update', {
+            const response = await fetch('http://localhost:8080/FireWardenTracker_update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -151,7 +157,7 @@ const ManageWardenForm = () => {
             return;
         }
         try {
-            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_remove', {
+            const response = await fetch('http://localhost:8080/FireWardenTracker_remove', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -204,7 +210,8 @@ return (
                                     required
                                 >
                                     <option value="1">Admin</option>
-                                    <option value="0">User</option>
+                                    <option value="0">Fire Warden</option>
+                                    <option value="2">Health and Safety team</option>
                                 </select>
                             </td>
                         </tr>
@@ -312,6 +319,21 @@ return (
                                 />
                             </td>
                         </tr>
+                    <tr>
+                        <td><label>ShowOnDashboard:</label></td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="showOnDashboard"
+                                checked={wardenDetails.showOnDashboard === 1}
+                                onChange={(e) => {
+                                    const value = e.target.checked ? 1 : 0;
+                                    handleInputChange({ target: { name: 'showOnDashboard', value } }, setWardenDetails, wardenDetails);
+                                }}
+                            />
+                            <label htmlFor="showOnDashboard">Show on Dashboard</label>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <button type="submit">Add Warden</button>
@@ -319,7 +341,7 @@ return (
 
             {/* Manage Fire Wardens Section */}
             <div style={{ width: '45%' }}>
-                <h2>Manage Existing Fire Wardens</h2>
+                <h2>Manage Existing Users</h2>
                 <div>
                     <label>Select Warden:</label>
                     <select
@@ -374,7 +396,8 @@ return (
                                             required
                                         >
                                             <option value="1">Admin</option>
-                                            <option value="0">User</option>
+                                            <option value="0">Fire Warden</option>
+                                            <option value="2">Health and Safety team</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -460,6 +483,25 @@ return (
                                             }
                                             required
                                         />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ShowOnDashboard</td>
+                                    <td>
+                                        <input
+                                            type="checkbox"
+                                            name="showOnDashboard"
+                                            checked={manageWardenDetails.showOnDashboard === 1}
+                                            onChange={(e) => {
+                                                const value = e.target.checked ? 1 : 0;
+                                                handleInputChange(
+                                                    { target: { name: 'showOnDashboard', value } },
+                                                    setManageWardenDetails,
+                                                    manageWardenDetails
+                                                );
+                                            }}
+                                        />
+                                        <label htmlFor="showOnDashboard">Show on Dashboard</label>
                                     </td>
                                 </tr>
                             </tbody>
