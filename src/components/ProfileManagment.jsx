@@ -75,7 +75,7 @@ function ProfileManagment() {
             Phone: managePhone || undefined,
         };
         try {
-            const response = await fetch('http://localhost:5000/FireWardenTracker_update', {
+            const response = await fetch('https://firewardenapi-enfyauf7hjfhd2gy.uksouth-01.azurewebsites.net/FireWardenTracker_update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
