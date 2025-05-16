@@ -1,9 +1,52 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Winchester University Fire Warden Tracker
+
+A web application for managing and tracking fire wardens within an organization for assisting in ongoing management of fire safety and ensuring the safety of people during a fire evacuation. Built with React and modern web technologies.
+
+## Features
+
+Fire warden management and tracking
+- Record the date and time of the entry
+- User authentication and login system
+- Dashboard for overview and monitoring
+- Profile management
+  Administrative controls
+- Record the first warden’s unique staff number
+- Record the fire warden’s first and surname
+- Record the fire warden’s working location
+- Amend recorded details
+- Delete recorded details
+  Design
+- Responsive design
+
+
+## Tech Stack
+
+- React 18.2.0
+- React Router DOM 7.3.0
+- Axios 1.8.4
+- Moment.js 2.30.1
+- [Vite 6.1.0](https://www.npmjs.com/package/viject)
+- SVGR Core 8.1.0
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm (comes with Node.js)
+
+### Installation
+
+1. Clone the repository:
+
+2. Install dependencies:
+
+3. Start the development server:
+
+4. Fork [API](https://github.com/Isakb04/fire_warden_api.git) as well ([https://github.com/Isakb04/fire_warden_api.git](https://github.com/Isakb04/fire_warden_api.git))
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`
@@ -39,32 +82,30 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is configured for deployment to Azure Static Web Apps. Deployment is automated through GitHub Actions however can be run locally.
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Making a Progressive Web App
+## Later Additions
+- Add and manage Locations
+- Better databse managment and layout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is licensed under the [MIT License](LICENSE).
 
-### Deployment
+![Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx6djLmdefaoq-Ze16S1Y34s_62wZTP1g9cg&s)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
