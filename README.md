@@ -16,7 +16,8 @@ Fire warden management and tracking
 - Record the fire warden’s working location
 - Amend recorded details
 - Delete recorded details
-  Design
+
+Design
 - Responsive design
 
 
